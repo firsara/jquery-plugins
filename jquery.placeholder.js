@@ -12,16 +12,17 @@ $.fn.placeholder = function(){
           $(this).html(val);
         } else {
           $(this).attr('value', val);
+          $(this).attr('data-placeholder-value', val);
         }
       }
 
       $(this).focus(function(){
-        if ( $(this).val() === this.defaultValue ) {
+        if ( $(this).val() == $(this).attr('data-placeholder-value') ) {
           $(this).val('');
         }
       }).blur(function(){
-        if ( $(this).val() === this.defaultValue || $(this).val() === '' ) {
-          $(this).val(this.defaultValue);
+        if ( $(this).val() == $(this).attr('data-placeholder-value') || $(this).val() == '' ) {
+          $(this).val($(this).attr('data-placeholder-value'));
         }
       });
 
