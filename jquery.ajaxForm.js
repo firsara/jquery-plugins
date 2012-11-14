@@ -88,8 +88,8 @@
               data: form.serialize()
             };
 
-            opts.success = function(){
-              if (callback) callback.call(this);
+            opts.success = function(result){
+              if (callback) callback.call(this, result);
             };
 
             opts.error = function(){
