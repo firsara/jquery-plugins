@@ -10,7 +10,6 @@
     var startTime = new Date().getTime();
     
     var loadResource = function(path, callback){
-      var type = path.substring(path.lastIndexOf('.') + 1);
       $.get(path, callback);
     };
     
