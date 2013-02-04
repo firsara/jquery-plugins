@@ -7,12 +7,21 @@
       
       var toggleRadio = function(){
         var name = $(this).attr('data-name');
-        
+        var checked = true;
+
+        if (self.attr('data-deselect')) {
+          if (self.attr('checked')) {
+            checked = false;
+          }
+        }
+
         $('.radio[data-name="'+name+'"]').removeClass('active');
         $('input[type="radio"][name="'+name+'"]').removeAttr('checked');
-        
-        self.attr('checked', 'checked');
-        $radio.addClass('active');
+
+        if (checked) {
+          self.attr('checked', 'checked');
+          $radio.addClass('active');
+        }
         
         self.trigger('change');
       };
